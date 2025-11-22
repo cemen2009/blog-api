@@ -46,7 +46,7 @@ class PostModel(Base):
         secondary=PostsCommentsModel,
         back_populates="posts",
     )
-    # NIF
+    # out of scope
     # limit_comments: Mapped[CommentLimitationEnum] = mapped_column(SQLAlchemyEnum(), nullable=False)
 
     author_id: Mapped[int] = mapped_column(ForeignKey("users.id"), nullable=False)
