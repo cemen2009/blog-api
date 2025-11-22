@@ -1,1 +1,1 @@
-from models import Base, CommentModel, PostModel
+from database.base_model import Base

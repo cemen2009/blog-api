@@ -4,7 +4,7 @@ from sqlalchemy.orm import mapped_column, Mapped, relationship
 from sqlalchemy import String, Float, Text, DECIMAL, ForeignKey, Table, Column  # they're added just in case
 from sqlalchemy import Enum as SQLAlchemyEnum
 
-from src.database import Base, CommentModel
+from database import Base
 
 
 # TODO: implement enum for comment limitation: everyone/only people i follow/nobody
@@ -41,8 +41,8 @@ class PostModel(Base):
     # not implemented feature
     # hide_likes_count: Mapped[bool] = mapped_column(nullable=False)
 
-    comments: Mapped[list[CommentModel]] = relationship(
-        CommentModel,
+    comments: Mapped[list["CommentModel"]] = relationship(
+        "CommentModel",
         secondary=PostsCommentsModel,
         back_populates="posts",
     )
