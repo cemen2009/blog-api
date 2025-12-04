@@ -17,7 +17,7 @@ Welcome to the blog API. You can post, comment and moderate comments using AI.
 | Back-end web framework        | FastAPI       | 0.116.1   |           |
 | Database                      | PostgreSQL    | 17.6      |           |
 | Web server                    | Uvicorn       | 0.35.0    |           |
-
+| Project manager               | uv            | 0.8.9     |           |
 
 ### How to run the project
 
