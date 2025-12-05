@@ -6,7 +6,9 @@ COPY --from=ghcr.io/astral-sh/uv:latest /uv /usr/local/bin/uv
 
 WORKDIR /app
 
+    # tells uv to compile Python files to bytecode for faster startup
 ENV UV_COMPILE_BYTECODE=1 \
+    # ensures uv copies files instead of creating symlinks
     UV_LINK_MODE=copy
 
 # copy only dependency descriptors — leverage Docker cache
@@ -26,10 +28,12 @@ RUN --mount=type=cache,target=/root/.cache/uv \
 ########## 2. production stage ##########
 FROM python:3.13-slim AS runtime
 
+ENV PATH="/app/.venv/bin:$PATH"
+
 WORKDIR /app
 
 # copy venv (or site‑packages + bin) from build
-COPY --from=builder --chown=appuser:appuser /app /app
+COPY --from=builder --chown=appuser:appgroup /app /app
 
 # create non-root user
 RUN groupadd -g 1001 appgroup && \
@@ -37,6 +41,5 @@ RUN groupadd -g 1001 appgroup && \
 
 USER appuser
 
-ENV PATH="/app/.venv/bin:$PATH"
 
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["python", "-m", "uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
