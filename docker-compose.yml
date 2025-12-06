@@ -1,0 +1,17 @@
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: api
+    command: bash -c "/commands/run_uvicorn_server.sh"
+    volumes:
+      - ./src:/app/src:rw
+      - ./commands:/app/commands:ro
+    environment:
+      - DATABASE_URL=postgresql+psycopg://postgres:postgres@db:5432/postgres
+    ports:
+      - "8000:8000"
+
+volumes:
+  pgdata:
