@@ -12,5 +12,6 @@ wheels/
 # Private Keys
 .pem
 
-# Pycharm
+# IDE
 .idea/
+.vscode/
