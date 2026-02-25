@@ -1,11 +1,17 @@
 import os
 from enum import StrEnum
 
+from dotenv import load_dotenv
 from pydantic_settings import BaseSettings
+
+
+load_dotenv(verbose=True)
 
 
 class AppEnvTypes(StrEnum):
     development = "development"
+    production = "production"
+    qa = "qa"
 
 
 class AppUploadFolders(StrEnum):
@@ -13,4 +19,4 @@ class AppUploadFolders(StrEnum):
 
 
 class BaseAppSettings(BaseSettings):
-    env: AppEnvTypes = os.getenv("ENV") or AppEnvTypes.development
+    ENV: AppEnvTypes = os.getenv("ENV") or AppEnvTypes.development
