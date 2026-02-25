@@ -9,5 +9,11 @@ wheels/
 # Virtual environments
 .venv
 
+# Private Keys
+.pem
 
+# IDE
 .idea/
+.vscode/
+
+.env

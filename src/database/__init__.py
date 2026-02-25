@@ -1,0 +1,1 @@
+from database.base_model import Base
