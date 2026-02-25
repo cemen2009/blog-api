@@ -1,6 +1,9 @@
 # Blog API
 
-Welcome to the blog API. You can post, comment and moderate comments using AI.
+People have essential need to communicate with each other and show their achievements.
+That's some basics social needs.
+I provide API that can do anything of this but with sophisticated
+security mechanism.
 
 ## Content
 
