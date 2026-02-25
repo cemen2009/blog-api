@@ -19,7 +19,7 @@ Note: diagram can differ from current implementation due to changing nature of m
 
 ## Main Flow
 
-Here you can see main flow and other type shit: 
+Here you can see main flow and other type shit: https://excalidraw.com/#json=99oWxVlJSmCNDhiy1K40w,FTJjffAUP5RVwtxDH7S_zw
 
 ## What flows exist
 
